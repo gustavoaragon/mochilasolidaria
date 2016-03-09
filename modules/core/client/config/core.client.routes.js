@@ -9,7 +9,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       var hasTrailingSlash = path.length > 1 && path[path.length - 1] === '/';
 
       if (hasTrailingSlash) {
-        //if last character is a slash, return the same url without the slash  
+        //if last character is a slash, return the same url without the slash
         var newPath = path.substr(0, path.length - 1);
         $location.replace().path(newPath);
       }
@@ -22,10 +22,15 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       });
     });
 
-    // Home state routing
+    // Seteamos la home
     $stateProvider
       .state('home', {
         url: '/',
+        templateUrl: 'modules/core/client/views/home.client.view.html'
+      })
+      // Seteamos la url de voluntarios
+      .state('voluntarios', {
+        url: '/voluntarios',
         templateUrl: 'modules/core/client/views/home.client.view.html'
       })
       .state('not-found', {
